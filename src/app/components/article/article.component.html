@@ -1,0 +1,30 @@
+<div class="card m-2">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-sm-10 mt-2">
+        <h6>Featured</h6>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+    
+  </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ Article.title }}</h5>
+      <p class="card-text">{{ Article.content }}</p>
+      <h6>Comments:</h6>
+      <div *ngFor="let comment of Comments" class="card m-1">
+        <div class="card-body">
+          <p  class="card-text">User:{{ comment.email}} Content: {{ comment.content }} </p>
+        </div>
+      </div>
+      <form class="form-group" (ngSubmit)="addComment()">
+        <div class="mb-3">
+          <label for="commentContent" class="form-label">Comment</label>
+          <input type="text" class="form-control" id="commentContent" name="newComment" [(ngModel)]="newComment">
+        </div>
+        <button type="submit" class="btn btn-primary">Add comment</button>
+    </form>
+    </div>
+  </div>
+
